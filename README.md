@@ -57,3 +57,7 @@ Additional data describes optional weather variables to download besides the pri
 ```{r}
 wi_weather_1yr <- noaa_mappings(df = wi, time_period = 12, important_trait = "temp", additional_data = "AA1")
 ```
+
+### noaa_runscript.R
+
+This script was used to generate dataframes and run GWAS mappings (using cegwas) for wild isolates as seen in Evans et al., 2016 (G3). 
