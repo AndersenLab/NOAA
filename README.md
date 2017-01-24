@@ -30,7 +30,7 @@ The isolation date when each strain was isolated in YYYY-MM-DD format. No data w
 
 String describing the isolation location or date. In some cases, only the year of isolation is known, but the isolation_date is defaulted to January 1 of that year. The phrase "only year" is important to distinguish these cases. Similarly, sometimes only the month/year (but not exact date) of isolation is known, in which the phrase "only month/year" is necessary.
 
-#### noaa_mappings() function
+### noaa_mappings() function
 
 This function will gather NOAA weather/climate information given a dataframe of wild isolates and a time period to collect information for. It will calculate the average maximum, minimum, and mean during that time period and returns a new dataframe. Relys on input dataframe to have comments for isolation date, should probably be manually checked before used.
 
