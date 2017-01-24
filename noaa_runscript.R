@@ -8,7 +8,7 @@ library(biomaRt)
 setwd("~/Dropbox/AndersenLab/LabFolders/Katie/projects/noaa/data/")
 
 #Download data for 3 months
-wi <- read.csv('~/Dropbox/AndersenLab/LabFolders/Katie/projects/noaa/data/now/20160715.wild.isolates.adjusted.csv', header=T) %>% 
+wi <- read.csv('~/Dropbox/AndersenLab/LabFolders/Katie/projects/noaa/data/20160715.wild.isolates.adjusted.csv', header=T) %>% 
   dplyr::select(-X)
 
 wi_weather_1yr <- noaa_mappings(df = wi, time_period = 12, important_trait = "temp", additional_data = "AA1")

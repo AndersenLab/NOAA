@@ -4,11 +4,8 @@
 # should probably be manually checked before used.
 
 
-noaa_mappings <- function(df, time_period, important_trait = NULL, events = 10, 
-                          additional_data = c("AA1", "AB1", "AE1", "AJ1", "AL1", "AO1", "CH1", "CI1", "CT1", "CU1", 
-                                              "GA1", "GD1", "GE1", "GF1", "GH1", "GJ1", "GL1", "GM1", "GN1", "GO1", 
-                                              "HL1", "IA1", "IB1", "KB1", "KE1", "KF1", "KG1", "MA1", "MF1", "MG1", 
-                                              "MH1", "OB1", "RH1", "ST1")) {
+noaa_mappings <- function(df, time_period = 3, important_trait = NULL, events = 10, 
+                          additional_data = "FALSE") {
   #Load required libraries
   print("Loading required libraries...")
   library(devtools)
@@ -71,8 +68,17 @@ noaa_mappings <- function(df, time_period, important_trait = NULL, events = 10,
     mutate(id = paste(USAF, WBAN, sep = "-"))
   
   #Download ALL weather data available
-  all_data <-  additional_data
-  
+  if(additional_data == "TRUE") {
+    all_data <- c("AA1", "AB1", "AE1", "AJ1", "AL1", "AO1", "CH1", "CI1", "CT1", "CU1", 
+                  "GA1", "GD1", "GE1", "GF1", "GH1", "GJ1", "GL1", "GM1", "GN1", "GO1", 
+                  "HL1", "IA1", "IB1", "KB1", "KE1", "KF1", "KG1", "MA1", "MF1", "MG1", 
+                  "MH1", "OB1", "RH1", "ST1")
+  } else if(additional_data == "FALSE") {
+    all_data <- NULL
+  } else {
+    all_data <- additional_data
+  }
+
   #Find closest station and access data
   wi_weather_max <- wi_weather
   wi_weather_min <- wi_weather
