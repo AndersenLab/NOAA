@@ -13,7 +13,7 @@ load("20161103.noaa.pmd.all.RData")
 pmd3mo <- processed_mapping_df_3mo %>% mutate(trait = paste0(trait, "_3mo"))
 pmd1yr <- processed_mapping_df_1yr %>% mutate(trait = paste0(trait, "_1yr"))
 pmd3yr <- processed_mapping_df_3yr %>% mutate(trait = paste0(trait, "_3yr"))
-pmdloc <- readRDS("/Users/katieevans/Dropbox/AndersenLab/LabFolders/Katie/projects/noaa/data/now/20160715.pmd.152.location.rds") %>%
+pmdloc <- readRDS("/Users/katieevans/Dropbox/AndersenLab/LabFolders/Katie/projects/noaa/data/20160715.pmd.152.location.rds") %>%
   mutate(time_period = c(NA))
 processed_mapping_df <- rbind(pmdloc, pmd3mo, pmd1yr, pmd3yr)
 
